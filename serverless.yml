@@ -1,0 +1,19 @@
+service: aws-node-express-api-project
+frameworkVersion: '3'
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  api:
+    handler: ./dist/index.handler
+    events:
+      - httpApi: '*'
+
+plugins:
+  - serverless-offline
